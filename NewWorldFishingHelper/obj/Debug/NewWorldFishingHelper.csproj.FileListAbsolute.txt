@@ -1,0 +1,10 @@
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.csprojAssemblyReference.cache
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.Form1.resources
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.Properties.Resources.resources
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.csproj.GenerateResource.cache
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.csproj.CoreCompileInputs.cache
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\bin\Debug\NewWorldFishingHelper.exe.config
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\bin\Debug\NewWorldFishingHelper.exe
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\bin\Debug\NewWorldFishingHelper.pdb
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.exe
+C:\Users\julye\source\repos\NewWorldFishingHelper\NewWorldFishingHelper\obj\Debug\NewWorldFishingHelper.pdb
