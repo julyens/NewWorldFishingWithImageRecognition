@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,26 +33,29 @@ namespace NewWorldFishingHelper
         }
 
         private void searchForFish() {
+            string workingDirectory = Environment.CurrentDirectory;
+            Boolean encontrou = new Boolean();
+
             Bitmap bitmap = new Bitmap(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
             Graphics graphics = Graphics.FromImage(bitmap as Image);
             graphics.CopyFromScreen(0, 0, 0, 0, bitmap.Size);
-            bitmap.Save(@"C:\Temp\printscreen.png", ImageFormat.Jpeg);
+            bitmap.Save(workingDirectory + @"\Images\printscreen.png", ImageFormat.Jpeg);
+
+           
+           
+            
+
+           
+            Bitmap HOLDCAST = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\HOLDCAST.png");
+            Bitmap READY = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\READY.png");
+            //Bitmap HOOK = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\hook.png");
+            Bitmap PULLSAFE = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\pullsafe.png");
+            Bitmap PULLSAFE2 = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\pullsafe4.png");
+            Bitmap PULLRED = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\PULLRED.png");
 
 
-            Boolean encontrou = new Boolean();
 
-            //Bitmap bitmap1 = (Bitmap)Bitmap.FromFile(@"C:\Temp\5.png");
-
-            Bitmap HOLDCAST = (Bitmap)Bitmap.FromFile(@"C:\Temp\HOLDCAST.png");
-            Bitmap READY = (Bitmap)Bitmap.FromFile(@"C:\Temp\READY.png");
-            Bitmap HOOK = (Bitmap)Bitmap.FromFile(@"C:\Temp\hook.png");
-            Bitmap PULLSAFE = (Bitmap)Bitmap.FromFile(@"C:\Temp\pullsafe.png");
-            Bitmap PULLSAFE2 = (Bitmap)Bitmap.FromFile(@"C:\Temp\pullsafe4.png");
-            Bitmap PULLRED = (Bitmap)Bitmap.FromFile(@"C:\Temp\PULLRED.png");
-
-
-
-            Bitmap Screenshot = (Bitmap)Bitmap.FromFile(@"C:\Temp\printscreen.png");
+            Bitmap Screenshot = (Bitmap)Bitmap.FromFile(workingDirectory + @"\Images\printscreen.png");
            
             Rectangle location = Rectangle.Empty;
         
@@ -67,7 +71,7 @@ namespace NewWorldFishingHelper
                 if (location.Width != 0)
                 {
                     label7.Text = "HOLDCAST found in " + stopWatch.ElapsedMilliseconds + " ms.";
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 200);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 200);
                     textBox1.Text = "HOLDCAST";
                     
                 }
@@ -89,21 +93,21 @@ namespace NewWorldFishingHelper
                     label7.Text = "READY found in " + stopWatch.ElapsedMilliseconds + " ms.";
                     textBox1.Text = "REEL IN";
                     System.Threading.Thread.Sleep(900);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 5500);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 5100);
                     System.Threading.Thread.Sleep(800);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1700);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1700);
                     System.Threading.Thread.Sleep(800);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1800);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1800);
                     System.Threading.Thread.Sleep(900);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1800);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1800);
                     System.Threading.Thread.Sleep(800);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1800);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1800);
                     System.Threading.Thread.Sleep(800);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1500);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1500);
                     System.Threading.Thread.Sleep(800);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1500);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1500);
                     System.Threading.Thread.Sleep(900);
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 1500);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 1500);
                     System.Threading.Thread.Sleep(900);
                 }
                 else
@@ -113,27 +117,7 @@ namespace NewWorldFishingHelper
                 }
             }
             ////////////////////////////////////////////////////////////////////////////////////////
-            //////////////////////////////////////HOOK/////////////////////////////////////////
-           // if (textBox1.Text == "READY")
-           // {
-           //     location = ImageRec.searchBitmap(HOOK, bitmap2, tolerance);
-
-           //     if (location.Width != 0)
-           //     {
-           //         label7.Text = "HOOK found in " + stopWatch.ElapsedMilliseconds + " ms.";
-          //          Clickarino.leftClick(new Point(location.X, location.Y));
-          //          textBox1.Text = "REEL IN";
-          //          //widthTextBox.Text = bitmap1.Width.ToString();
-          //          //heightTextBox.Text = bitmap1.Height.ToString();
-          //      }
-          //      else
-          // /     {
-          //         label8.Text = "HOOK not found.";
-
-            //    }
-            //}
-            ////////////////////////////////////////////////////////////////////////////////////////
-            ///
+           
             //////////////////////////////////////REEL IN/////////////////////////////////////////
             if (textBox1.Text == "REEL IN") { 
             location = ImageRec.searchBitmap(PULLSAFE, Screenshot, tolerance);
@@ -144,7 +128,7 @@ namespace NewWorldFishingHelper
                     timeout = 0;
                     textBox1.Text = "REEL IN";
                     
-                    Clickarino.holDownLeft(new Point(location.X, location.Y),2000);
+                    Mouse.holDownLeft(new Point(location.X, location.Y),2000);
                 }
             else
             {
@@ -166,7 +150,7 @@ namespace NewWorldFishingHelper
                     timeout = 0;
                     textBox1.Text = "REEL IN";
                     
-                    Clickarino.holDownLeft(new Point(location.X, location.Y), 2000);
+                    Mouse.holDownLeft(new Point(location.X, location.Y), 2000);
                 }
                 else
                 {
@@ -207,7 +191,7 @@ namespace NewWorldFishingHelper
 
             stopWatch.Stop();
             HOLDCAST.Dispose();
-            HOOK.Dispose();
+            //HOOK.Dispose();
             PULLSAFE.Dispose();
             Screenshot.Dispose();
             bitmap.Dispose();

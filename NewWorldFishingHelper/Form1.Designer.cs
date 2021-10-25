@@ -169,7 +169,7 @@ namespace NewWorldFishingHelper
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Fish Friend";
             ((System.ComponentModel.ISupportInitialize)(this.toleranceTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
